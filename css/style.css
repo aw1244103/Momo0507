@@ -1,0 +1,213 @@
+﻿@charset "utf-8";
+/* 基本レイアウト ここから↓ */
+@import url(common.css);
+body{
+    font-family: "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ＭＳＰゴシック", "MS PGothic", sans-serif;
+    background-color: #ffffff;
+    font-size: 90.5%;
+    color: #333333;
+}
+
+header, nav, #topicpath, #contents, footer{
+    width: 852px;
+    margin-left:  auto;
+    margin-right: auto;
+}
+header h1{
+    margin: 0px;
+    padding-top:47px ;
+    text-align: left;
+}
+nav ul{
+  list-style-type: none;
+  margin: 0px 0px 20px 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+nav ul li{
+  width:213px;  
+  float: left;
+}
+nav ul li a{
+display: block;
+height: 0px;
+padding-top: 55px;
+overflow: hidden;
+}
+nav ul li#nav_about a{
+    background-image: url(../images/nav1.png);
+}
+nav ul li#nav_shop a{
+    background-image: url(../images/nav2.png);
+}
+nav ul li#nav_products a{
+    background-image: url(../images/nav3.png);
+}
+nav ul li#nav_mag a{
+    background-image: url(../images/nav4.png);
+}
+#main{
+    width: 580px;
+    float: left;
+}
+#sub{
+    width: 240px;
+    float: right;
+}
+footer{
+ padding-top: 30px;   
+}
+#main h1{
+    margin: 0px 0px 30px 0px;
+    padding: 30px 0px 30px 0px;
+    background-image: url(../images/h1_head.gif),url(../images/h1_bottom.gif);
+    background-repeat: repeat-x, repeat-x;
+    background-position: left top,left bottom;
+    font-size:156.25% ;
+    text-align:center;
+}
+#about #nav_about a, #shop #nav_shop a, #products #nav_products a, #mag #nav_mag a, nav ul li a:hover{
+    background-position:0px -55px ;
+}
+/* 基本レイアウト ここまで↑ */
+
+/* トップページ ここから↓ */
+#news ul{
+    list-style-type: none;
+    margin-top: 0px;
+    margin-bottom: 60px;
+    padding-left: 0px;
+
+}
+#news ul li{
+    padding: 20px 0px 20px 160px;
+    border-bottom:dotted 1px #6c5f45;
+    text-indent: -160px;
+}
+/* トップページ ここまで↑ */
+
+/* 「ショップについて」ページ ここから↓ */
+.about_box{
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+.about_box:last-child{
+    margin-bottom: 0px;
+}
+/* 「ショップについて」ページ ここまで↑ */
+
+/* 「店舗案内」ページ ここから↓ */
+table thead tr{
+    background-color: #f26161;
+    color: #ffffff;
+}
+table tbody tr:nth-child(odd){
+   background-color: #ffffff;
+}
+table tbody tr:nth-child(even){
+    background-color: #f5f3f3;
+ }
+
+/* 「店舗案内」ページ ここまで↑ */
+
+/* 「取扱商品」ページ ここから↓ */
+.products_box figure{
+    width: 280px;
+    margin:  0px 0px 15px 20px;
+    float: left;
+}
+.products_box figure:first-child{
+  margin-left: 0;
+}
+/* 「取扱商品」ページ ここまで↑ */
+
+/* 「メルマガ登録」ページ ここから↓ */
+input[type="text"]{
+    width: 150px;
+}
+input[type="address"]{
+    width: 280px;
+}
+/* 「メルマガ登録」ページ ここまで↑ */
+
+.jjjj{
+    width: 282px;
+    height: 200px;
+}
+
+@media screen and ( min-width:769px ){
+    #contents{
+        width: 900px;
+        margin:  0 auto;
+      
+    }
+    #ham-menu ul{
+        padding-left: 0px;
+    }
+
+    #ham-menu ul li{
+        list-style-type:none;
+        width:calc(25%);
+}
+}
+    /*      769Px未満    */
+
+@media screen and ( max-width:768px )
+{
+/*メニュー部分*/
+#ham-menu {
+    background-color: #fff; /*メニュー背景色*/
+    box-sizing: border-box;
+    height: 100%;
+    padding: 10px 40px; /*メニュー内部上下左右余白*/
+    position: fixed;
+    right: -300px; /*メニュー横幅①と合わせる*/
+    top: 0;
+    transition: transform 0.3s linear 0s; /*0.3s は変化するのにかかる時間*/
+    width: 300px; /*メニュー横幅①*/
+    z-index: 2000;
+}
+#ham-menu ul li{
+	list-style-type:none;
+}
+
+/*メニューアイコン部分は疑似要素で*/
+#ham-menu:before {
+    background-color: #fff; /*ボタン部分背景色*/
+    border-radius: 0 0 0 10px; /*左下角丸*/
+    color: #333; /*アイコン（フォント）色*/
+    content: "≡"; /*メニューアイコン*/
+    display: block;
+    font-size: 50px; /*アイコン（フォント）サイズ*/
+    height: 50px;
+    line-height: 50px; /*縦位置中央化*/
+    position: absolute;
+    right: 100%;
+    text-align: center;
+    top: 0;
+    width: 55px;
+}
+
+/*透過背景部分*/
+#menu-background {
+    background-color: #333; /*黒背景部分背景色*/
+    display: block;
+    height: 100%;
+    opacity: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transition: all 0.3s linear 0s; /*0.3s は変化するのにかかる時間*/
+    width: 100%;
+    z-index: -1;/*レイヤを表し、z-index: 10; の要素より、 z-index:20; の要素のほうが上*/
+}
+
+/*hover 時の処理*/
+#ham-menu:hover {
+    transform: translate(-300px); /*メニュー横幅①と合わせる*/
+}
+#ham-menu:hover ~ #menu-background { /*#ham-menu:hoverの直後に隣接している要素にCSSを設定する*/
+    opacity: 0.5; /*黒背景部分透過度*/
+    z-index: 999; 
+}
+}
